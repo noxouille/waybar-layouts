@@ -133,13 +133,11 @@ tooltip label {
 
 #battery.critical:not(.charging) {
   color: @error;
-  animation: pulse 1s ease-in-out infinite;
+  animation: blink 1s infinite;
 }
 
-@keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+@keyframes blink {
+  50% { opacity: 0.6; }
 }
 
 /* ============================================================================

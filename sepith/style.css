@@ -293,11 +293,11 @@ tooltip label {
 
 #battery.critical:not(.charging) {
   color: @error_container;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0.6; }
 }
 
 /* --- Drawers --- */
