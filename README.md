@@ -31,6 +31,8 @@ Unified continuous bar inspired by the Xipha tactical-orbment device.
 Features a subtle circuit-line gradient behind workspaces connecting the Sepith element dots.
 Active workspaces have a pronounced glow effect.
 
+![Xipha](xipha/preview.png)
+
 ## Usage
 
 Each theme folder contains:
