@@ -1,0 +1,107 @@
+{
+  "include": [
+    "~/.config/waybar/modules/modules.jsonc",
+    "~/.config/waybar/modules/custom_modules.jsonc"
+  ],
+  "layer": "top",
+  "position": "top",
+  "margin-top": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "reload_style_on_change": true,
+
+  // Unified bar - compact Xipha layout
+  "modules-left": ["clock", "custom/weather", "custom/media", "custom/gpu"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "custom/notification"],
+
+  // Xipha Workspaces - Circuit dots representing sepith slots
+  // Colors handled in CSS using nth-child selectors
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "default": "",
+      "active": ""
+    },
+    "persistent-workspaces": {
+      "*": 7
+    }
+  },
+
+  // Compact modules - icon only, expand on hover/click
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d %b}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<span color='#4a9eff'><b>{}</b></span>"
+      }
+    }
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-alt": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphone": "",
+      "headset": "󱡏",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 1,
+    "on-click-right": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "tooltip-format": "Volume: {volume}%"
+  },
+
+  "network": {
+    "interface": "wlp0s20f3",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "Connected to {essid}\nStrength: {signalStrength}%"
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-alt": "{icon} {capacity}%",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip-format": "Battery: {capacity}%"
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

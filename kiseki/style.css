@@ -1,0 +1,248 @@
+/* ============================================================================
+ * Arkride Theme - Waybar Stylesheet
+ * ============================================================================
+ * Inspired by Kuro no Kiseki / Trails through Daybreak
+ *
+ * CHARACTER-DRIVEN COLOR PALETTE:
+ * ┌─────────────────────────────────────────────────────────────────────────┐
+ * │ PRIMARY   │ Van (Spriggan)  │ #4a9eff │ Clock, active - protagonist     │
+ * │ SECONDARY │ Elaine (Bracer) │ #c9a063 │ Status - watching your back     │
+ * │ TERTIARY  │ Agnès (Client)  │ #d4879c │ Launcher - initiates journey    │
+ * │ AQUA      │ Mare (Xipha)    │ #2dd4bf │ Occupied - always present       │
+ * │ ERROR     │ Grendel         │ #c44040 │ Critical - danger states        │
+ * └─────────────────────────────────────────────────────────────────────────┘
+ *
+ * Import this after colors.css or use standalone
+ * ============================================================================
+ */
+
+@import '../../colors.css';
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Propo", "Noto Sans CJK JP", sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+tooltip {
+    background: @surface_container;
+    border: 1px solid @outline_variant;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+tooltip label {
+    color: @on_surface;
+}
+
+.modules-left {
+    margin-left: 15px;
+}
+
+.modules-right {
+    margin-right: 15px;
+}
+
+/* ============================================================================
+ * Base module styling
+ * ============================================================================ */
+
+#custom-launcher,
+#custom-weather,
+#custom-pacman,
+#custom-gpu,
+#clock,
+#workspaces,
+#custom-media,
+#custom-cava,
+#pulseaudio,
+#network,
+#custom-bluetooth,
+#custom-battery,
+#custom-notification {
+    margin: 5px 5px;
+    padding: 0 14px;
+    background-color: alpha(@surface_container, 0.85);
+    color: @primary;
+    border-radius: 50px;
+    border: 1px solid alpha(@outline_variant, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0, 0.2, 1);
+}
+
+/* Hover states */
+#custom-launcher:hover,
+#custom-weather:hover,
+#custom-pacman:hover,
+#clock:hover,
+#custom-media:hover,
+#pulseaudio:hover,
+#network:hover,
+#custom-bluetooth:hover,
+#custom-battery:hover,
+#custom-notification:hover {
+    background-color: alpha(@surface_container_high, 0.95);
+    border-color: alpha(@primary, 0.5);
+}
+
+/* ============================================================================
+ * LEFT MODULES - Agnès (Tertiary/Rose)
+ * She's the one who initiates - launcher starts actions, weather starts your day
+ * ============================================================================ */
+
+#custom-launcher,
+#custom-weather,
+#custom-media,
+#custom-gpu {
+    color: @tertiary;
+}
+
+#custom-launcher {
+    font-size: 1.3rem;
+}
+
+#custom-media {
+    min-width: 280px;
+}
+
+#custom-media label {
+    min-width: 280px;
+}
+
+#custom-gpu.hidden {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+#custom-gpu.warning {
+    color: @on_error;
+    background-color: alpha(@error_container, 0.85);
+}
+
+#custom-gpu.critical {
+    color: @on_error;
+    background-color: @error;
+    animation: blink 0.8s ease-in-out infinite;
+}
+
+/* ============================================================================
+ * CENTER MODULES - Van (Primary/Blue)
+ * The protagonist - where your focus should be
+ * ============================================================================ */
+
+#clock,
+#custom-cava {
+    color: @primary;
+}
+
+#custom-cava {
+    font-size: 1rem;
+    letter-spacing: -2px;
+}
+
+#clock {
+    font-weight: 700;
+}
+
+/* ============================================================================
+ * WORKSPACES - Van (Active) + Mare (Occupied)
+ * Van is your active focus, Mare monitors everything else
+ * ============================================================================ */
+
+#workspaces {
+    padding: 4px 8px;
+    background-color: alpha(@surface_container, 0.85);
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 2px 3px;
+    border-radius: 50px;
+    color: @outline;  /* Show icon in muted color instead of transparent */
+    min-width: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0, 0.2, 1);
+    background-color: alpha(@outline_variant, 0.5);
+    border: none;
+    border-radius: 50px;
+}
+
+#workspaces button.empty {
+    color: transparent;
+}
+
+/* Van (Primary) - Your active focus, the protagonist */
+#workspaces button.active {
+    background-color: @primary;
+    color: @on_primary;
+    min-width: 50px;
+    font-size: 13px;
+}
+
+/* Elaine (Secondary) - Warm hover, she's got your back */
+#workspaces button:hover {
+    background-color: @secondary;
+    color: @on_secondary;
+    min-width: 40px;
+}
+
+/* Grendel (Error) - Urgent, danger state */
+#workspaces button.urgent {
+    background-color: @error;
+    color: @on_error;
+    min-width: 50px;
+}
+
+@keyframes blink {
+    50% { opacity: 0.6; }
+}
+
+/* ============================================================================
+ * RIGHT MODULES - Elaine (Secondary/Gold)
+ * The bracer watching your back - reliable status indicators
+ * ============================================================================ */
+
+#pulseaudio,
+#custom-bluetooth,
+#network,
+#custom-battery,
+#custom-notification {
+    color: @secondary;
+}
+
+/* Muted/disconnected states */
+#pulseaudio.muted,
+#custom-bluetooth.off,
+#custom-bluetooth.disabled,
+#network.disconnected {
+    color: @outline;
+}
+
+#pulseaudio.muted {
+    background-color: alpha(@surface_container_low, 0.85);
+}
+
+/* Connected bluetooth uses Van's blue - active connection */
+#custom-bluetooth.connected {
+    color: @primary;
+}
+
+/* Battery warning - Grendel awakens */
+#custom-battery.warning {
+    color: @on_error;
+    background-color: alpha(@error_container, 0.7);
+}
+
+#custom-battery.critical {
+    color: @on_error;
+    background-color: alpha(@error, 0.85);
+    animation: blink 1s infinite;
+}

@@ -1,0 +1,253 @@
+/* --- Import colors --- */
+@import "../../colors.css";
+
+/* --- Global settings --- */
+* {
+  font-size: 0.9375rem;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+  font-weight: bold;
+}
+
+window#waybar {
+  all: unset;
+}
+
+/* --- Module island settings --- */
+.modules-center {
+  padding: 7px;
+  margin: 0 13px;
+  border-radius: 10px;
+  background: alpha(@background, 0.6);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+}
+
+.modules-left {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 0 0 13px;
+}
+
+.modules-right {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0 13px 0 0;
+}
+
+/* Hidden modules - completely invisible */
+#custom-gpu.hidden,
+#custom-media.hidden {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* --- Tooltip settings --- */
+tooltip {
+  background: @background;
+  border: 2px solid @primary;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: @on_background;
+  padding: 5px;
+}
+
+/* --- Separator --- */
+#custom-separator {
+  padding: 0 10px 0 15px;
+  color: alpha(@on_surface, 0.7);
+}
+
+/* --- Module base styles --- */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+  padding: 0px 5px;
+  transition: all 0.3s ease;
+  color: @on_surface;
+}
+
+/* --- Left modules on hover --- */
+.modules-left > widget > *:hover {
+  color: @tertiary;
+}
+
+/* --- Center-left modules on hover (before separator) --- */
+#clock:hover,
+#custom-weather:hover {
+  color: @tertiary;
+}
+
+/* --- Center-right & Right modules on hover (after separator) --- */
+.modules-right > widget > *:hover,
+#pulseaudio:hover,
+#custom-bluetooth:hover,
+#network:hover,
+#battery:hover,
+#power-profiles-daemon:hover,
+#custom-notification:hover {
+  color: @secondary;
+}
+
+/* --- Workspace settings --- */
+/* Sepith Element Colors (from Trails series):
+ * 1: Earth (地) - Ochre/Brown
+ * 2: Water (水) - Blue
+ * 3: Fire (火) - Red/Orange
+ * 4: Wind (風) - Green
+ * 5: Time (時) - Black/Dark
+ * 6: Space (空) - Gold/Yellow
+ * 7: Mirage (幻) - Silver/White
+ */
+@define-color sept_earth #c9a063;
+@define-color sept_water #4a9eff;
+@define-color sept_fire #e85d4c;
+@define-color sept_wind #2dd4bf;
+@define-color sept_time #7a7a8e;
+@define-color sept_space #f0c040;
+@define-color sept_mirage #a0a0b8;
+
+#workspaces {
+  padding: 0px 5px;
+}
+
+#workspaces button {
+  all: unset;
+  padding: 0px 5px;
+  color: alpha(@on_surface, 0.3);
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: alpha(@on_surface, 0.6);
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Element-specific active colors using nth-child */
+#workspaces button:nth-child(1).active {
+  color: @sept_earth;
+  text-shadow: 0px 0px 4px alpha(@sept_earth, 0.6);
+}
+
+#workspaces button:nth-child(2).active {
+  color: @sept_water;
+  text-shadow: 0px 0px 4px alpha(@sept_water, 0.6);
+}
+
+#workspaces button:nth-child(3).active {
+  color: @sept_fire;
+  text-shadow: 0px 0px 4px alpha(@sept_fire, 0.6);
+}
+
+#workspaces button:nth-child(4).active {
+  color: @sept_wind;
+  text-shadow: 0px 0px 4px alpha(@sept_wind, 0.6);
+}
+
+#workspaces button:nth-child(5).active {
+  color: @sept_time;
+  text-shadow: 0px 0px 4px alpha(@sept_time, 0.6);
+}
+
+#workspaces button:nth-child(6).active {
+  color: @sept_space;
+  text-shadow: 0px 0px 4px alpha(@sept_space, 0.6);
+}
+
+#workspaces button:nth-child(7).active {
+  color: @sept_mirage;
+  text-shadow: 0px 0px 4px alpha(@sept_mirage, 0.6);
+}
+
+#workspaces button.empty {
+  color: rgba(0, 0, 0, 0);
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.empty:hover {
+  color: alpha(@on_surface, 0.3);
+  border: none;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Empty but active workspace gets element color too */
+#workspaces button:nth-child(1).empty.active {
+  color: @sept_earth;
+  text-shadow: 0px 0px 4px alpha(@sept_earth, 0.6);
+}
+
+#workspaces button:nth-child(2).empty.active {
+  color: @sept_water;
+  text-shadow: 0px 0px 4px alpha(@sept_water, 0.6);
+}
+
+#workspaces button:nth-child(3).empty.active {
+  color: @sept_fire;
+  text-shadow: 0px 0px 4px alpha(@sept_fire, 0.6);
+}
+
+#workspaces button:nth-child(4).empty.active {
+  color: @sept_wind;
+  text-shadow: 0px 0px 4px alpha(@sept_wind, 0.6);
+}
+
+#workspaces button:nth-child(5).empty.active {
+  color: @sept_time;
+  text-shadow: 0px 0px 4px alpha(@sept_time, 0.6);
+}
+
+#workspaces button:nth-child(6).empty.active {
+  color: @sept_space;
+  text-shadow: 0px 0px 4px alpha(@sept_space, 0.6);
+}
+
+#workspaces button:nth-child(7).empty.active {
+  color: @sept_mirage;
+  text-shadow: 0px 0px 4px alpha(@sept_mirage, 0.6);
+}
+
+/* --- Battery --- */
+#battery.charging {
+  color: @tertiary;
+}
+
+#battery.warning:not(.charging) {
+  color: @error;
+}
+
+#battery.critical:not(.charging) {
+  color: @error_container;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* --- Contextual pill modules (must be after base styles) --- */
+.modules-left #custom-media,
+.modules-right #custom-gpu {
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: alpha(@background, 0.6);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+}
+
+.modules-left #custom-media {
+  margin-left: 5px;
+}
+
+.modules-right #custom-gpu {
+  margin-right: 5px;
+}

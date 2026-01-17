@@ -1,0 +1,129 @@
+{
+  "include": [
+    "~/.config/waybar/modules/modules.jsonc",
+    "~/.config/waybar/modules/custom_modules.jsonc"
+  ],
+  "layer": "top",
+  "position": "top",
+  "margin-top": 13,
+  "reload_style_on_change": true,
+
+  // Individual islands
+  "modules-left": ["clock", "custom/weather", "custom/media", "custom/gpu"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "power-profiles-daemon", "custom/notification"],
+
+  // Separator
+  "custom/media-separator": {
+    "exec": "~/.config/waybar/scripts/media_separator.sh",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": false
+  },
+
+  "custom/expand": {
+    "format": "󰬫",
+    "tooltip-format": "Expand drawer..."
+  },
+
+  "custom/expandleft": {
+    "format": "󰬩",
+    "tooltip-format": "Expand drawer..."
+  },
+
+  // Sept-Terrion Orbment - 7 elements from Trails series
+  // 1: Earth (地) - Demiourgos
+  // 2: Water (水) - Calus
+  // 3: Fire (火) - Ark Rouge
+  // 4: Wind (風) - Auster
+  // 5: Time (時) - Demiourgos
+  // 6: Space (空) - Aureole
+  // 7: Mirage (幻) - Demiourgos
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "地",
+      "2": "水",
+      "3": "火",
+      "4": "風",
+      "5": "時",
+      "6": "空",
+      "7": "幻",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 7
+    }
+  },
+
+  // Right modules - icon only, details on hover/click
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-alt": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphone": "",
+      "headset": "󱡏",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "scroll-step": 1,
+    "on-click-right": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"],
+    "tooltip-format": "Volume: {volume}%"
+  },
+
+  "network": {
+    "interface": "wlp0s20f3",
+    "format-wifi": "{icon}",
+    "format-wifi-alt": "{icon}  {essid}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤭",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "Connected to {essid}\nStrength: {signalStrength}%"
+  },
+
+  "battery": {
+    "format": "{icon}",
+    "format-alt": "{icon} {capacity}%",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip-format": "Battery: {capacity}%"
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "performance": "󰠠",
+      "balanced": "󰚀",
+      "power-saver": "󰌪"
+    },
+    "tooltip-format": "Power mode: {profile}"
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
+}

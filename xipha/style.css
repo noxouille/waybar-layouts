@@ -1,0 +1,275 @@
+/* ============================================================================
+ * Orbment Layout - Waybar Stylesheet
+ * ============================================================================
+ * A unified bar design inspired by the ARCUS orbment device
+ * Complements Sepith (floating islands) and Kiseki (bold pills)
+ *
+ * Design: Single continuous bar, medium opacity, circuit aesthetic
+ * Workspaces: Dots with sepith element colors and connecting line
+ * ============================================================================ */
+
+@import "../../colors.css";
+
+/* --- Sepith Element Colors --- */
+@define-color sept_earth #c9a063;
+@define-color sept_water #4a9eff;
+@define-color sept_fire #e85d4c;
+@define-color sept_wind #2dd4bf;
+@define-color sept_time #7a7a8e;
+@define-color sept_space #f0c040;
+@define-color sept_mirage #a0a0b8;
+
+/* --- Global --- */
+* {
+  font-size: 0.9rem;
+  font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo", sans-serif;
+  font-weight: 500;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* --- Unified Bar - Single continuous background --- */
+window#waybar {
+  background: alpha(@background, 0.7);
+  border-bottom: 1px solid alpha(@outline_variant, 0.4);
+}
+
+/* --- Module Sections - No individual backgrounds --- */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: transparent;
+  padding: 6px 0;
+}
+
+.modules-left {
+  padding-left: 16px;
+}
+
+.modules-right {
+  padding-right: 16px;
+}
+
+/* --- Tooltip --- */
+tooltip {
+  background: alpha(@surface_container, 0.95);
+  border: 1px solid alpha(@outline_variant, 0.5);
+  border-radius: 8px;
+}
+
+tooltip label {
+  color: @on_surface;
+  padding: 4px 8px;
+}
+
+/* --- Base Module Styling --- */
+#clock,
+#custom-weather,
+#custom-gpu,
+#custom-media,
+#pulseaudio,
+#custom-bluetooth,
+#network,
+#battery,
+#custom-notification {
+  padding: 0 10px;
+  color: @on_surface;
+  transition: all 0.2s ease;
+}
+
+/* --- Left Modules --- */
+#clock,
+#custom-weather,
+#custom-gpu,
+#custom-media {
+  color: alpha(@on_surface, 0.85);
+}
+
+#clock:hover,
+#custom-weather:hover,
+#custom-gpu:hover,
+#custom-media:hover {
+  color: @tertiary;
+}
+
+/* --- Right Modules --- */
+#pulseaudio,
+#custom-bluetooth,
+#network,
+#battery,
+#custom-notification {
+  color: alpha(@on_surface, 0.85);
+}
+
+#pulseaudio:hover,
+#custom-bluetooth:hover,
+#network:hover,
+#battery:hover,
+#custom-notification:hover {
+  color: @secondary;
+}
+
+/* --- Muted/Disconnected States --- */
+#pulseaudio.muted,
+#custom-bluetooth.off,
+#custom-bluetooth.disabled,
+#network.disconnected {
+  color: alpha(@on_surface, 0.35);
+}
+
+#custom-bluetooth.connected {
+  color: @primary;
+}
+
+/* --- Battery States --- */
+#battery.charging {
+  color: @tertiary;
+}
+
+#battery.warning:not(.charging) {
+  color: @error;
+}
+
+#battery.critical:not(.charging) {
+  color: @error;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* ============================================================================
+ * WORKSPACES - Orbment Dots
+ * ============================================================================ */
+
+#workspaces {
+  padding: 0 8px;
+  /* Circuit line effect - horizontal gradient line behind dots */
+  background-image: linear-gradient(
+    to right,
+    alpha(@sept_earth, 0.2),
+    alpha(@sept_water, 0.2),
+    alpha(@sept_fire, 0.2),
+    alpha(@sept_wind, 0.2),
+    alpha(@sept_time, 0.2),
+    alpha(@sept_space, 0.2),
+    alpha(@sept_mirage, 0.2)
+  );
+  background-size: 100% 1px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#workspaces button {
+  all: unset;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  color: alpha(@on_surface, 0.3);
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: alpha(@on_surface, 0.6);
+}
+
+/* --- Empty slots - dim element colors --- */
+#workspaces button:nth-child(1).empty { color: alpha(@sept_earth, 0.25); }
+#workspaces button:nth-child(2).empty { color: alpha(@sept_water, 0.25); }
+#workspaces button:nth-child(3).empty { color: alpha(@sept_fire, 0.25); }
+#workspaces button:nth-child(4).empty { color: alpha(@sept_wind, 0.25); }
+#workspaces button:nth-child(5).empty { color: alpha(@sept_time, 0.3); }
+#workspaces button:nth-child(6).empty { color: alpha(@sept_space, 0.25); }
+#workspaces button:nth-child(7).empty { color: alpha(@sept_mirage, 0.25); }
+
+#workspaces button.empty:hover {
+  color: alpha(@on_surface, 0.5);
+}
+
+/* --- Occupied slots - visible element colors --- */
+#workspaces button:nth-child(1) { color: alpha(@sept_earth, 0.7); }
+#workspaces button:nth-child(2) { color: alpha(@sept_water, 0.7); }
+#workspaces button:nth-child(3) { color: alpha(@sept_fire, 0.7); }
+#workspaces button:nth-child(4) { color: alpha(@sept_wind, 0.7); }
+#workspaces button:nth-child(5) { color: alpha(@sept_time, 0.7); }
+#workspaces button:nth-child(6) { color: alpha(@sept_space, 0.7); }
+#workspaces button:nth-child(7) { color: alpha(@sept_mirage, 0.7); }
+
+/* --- Active slots - full brightness with glow --- */
+#workspaces button:nth-child(1).active {
+  color: @sept_earth;
+  text-shadow: 0 0 8px @sept_earth, 0 0 16px @sept_earth;
+}
+#workspaces button:nth-child(2).active {
+  color: @sept_water;
+  text-shadow: 0 0 8px @sept_water, 0 0 16px @sept_water;
+}
+#workspaces button:nth-child(3).active {
+  color: @sept_fire;
+  text-shadow: 0 0 8px @sept_fire, 0 0 16px @sept_fire;
+}
+#workspaces button:nth-child(4).active {
+  color: @sept_wind;
+  text-shadow: 0 0 8px @sept_wind, 0 0 16px @sept_wind;
+}
+#workspaces button:nth-child(5).active {
+  color: @sept_time;
+  text-shadow: 0 0 8px @sept_time, 0 0 16px @sept_time;
+}
+#workspaces button:nth-child(6).active {
+  color: @sept_space;
+  text-shadow: 0 0 8px @sept_space, 0 0 16px @sept_space;
+}
+#workspaces button:nth-child(7).active {
+  color: @sept_mirage;
+  text-shadow: 0 0 8px @sept_mirage, 0 0 16px @sept_mirage;
+}
+
+/* --- Empty but active - element colors with glow --- */
+#workspaces button:nth-child(1).empty.active {
+  color: @sept_earth;
+  text-shadow: 0 0 8px @sept_earth, 0 0 16px @sept_earth;
+}
+#workspaces button:nth-child(2).empty.active {
+  color: @sept_water;
+  text-shadow: 0 0 8px @sept_water, 0 0 16px @sept_water;
+}
+#workspaces button:nth-child(3).empty.active {
+  color: @sept_fire;
+  text-shadow: 0 0 8px @sept_fire, 0 0 16px @sept_fire;
+}
+#workspaces button:nth-child(4).empty.active {
+  color: @sept_wind;
+  text-shadow: 0 0 8px @sept_wind, 0 0 16px @sept_wind;
+}
+#workspaces button:nth-child(5).empty.active {
+  color: @sept_time;
+  text-shadow: 0 0 8px @sept_time, 0 0 16px @sept_time;
+}
+#workspaces button:nth-child(6).empty.active {
+  color: @sept_space;
+  text-shadow: 0 0 8px @sept_space, 0 0 16px @sept_space;
+}
+#workspaces button:nth-child(7).empty.active {
+  color: @sept_mirage;
+  text-shadow: 0 0 8px @sept_mirage, 0 0 16px @sept_mirage;
+}
+
+/* --- Hover brightens --- */
+#workspaces button:nth-child(1):hover { color: @sept_earth; }
+#workspaces button:nth-child(2):hover { color: @sept_water; }
+#workspaces button:nth-child(3):hover { color: @sept_fire; }
+#workspaces button:nth-child(4):hover { color: @sept_wind; }
+#workspaces button:nth-child(5):hover { color: @sept_time; }
+#workspaces button:nth-child(6):hover { color: @sept_space; }
+#workspaces button:nth-child(7):hover { color: @sept_mirage; }
+
+/* --- Urgent - pulsing glow when window demands attention --- */
+#workspaces button.urgent {
+  color: @error;
+  text-shadow: 0 0 12px @error, 0 0 20px @error;
+  animation: pulse 0.8s ease-in-out infinite;
+}
