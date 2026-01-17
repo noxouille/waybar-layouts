@@ -12,19 +12,19 @@ Workspaces display kanji representing each Trails series entry. The media player
 
 ### Quartz
 
-A refined version of the Sepith layout with all core modules centered. Minimal floating island design with a single center island. Workspaces use the seven Sepith element colors (Earth, Water, Fire, Wind, Time, Space, Mirage) with glowing text shadows on the active workspace.
+A refined version of the Sepith layout with all core modules centered. Minimal floating island design with a single center island. Workspaces display kanji colored by the seven Sepith elements: empty workspaces show blurred kanji, occupied workspaces reveal the kanji clearly, and the active workspace has highlighted kanji with a glowing effect.
 
 ![Quartz](quartz/preview.png)
 
 ### Sepith
 
-Three floating islands (left, center, right) with semi-transparent backgrounds. Workspaces are colored by the seven Sepith elements, each glowing when active.
+Three floating islands (left, center, right) with semi-transparent backgrounds. Workspaces display kanji colored by the seven Sepith elements: empty workspaces show blurred kanji, occupied workspaces reveal the kanji clearly, and the active workspace has highlighted kanji with a glowing effect.
 
 ![Sepith](sepith/preview.png)
 
 ### Xipha
 
-Unified continuous bar inspired by the Xipha tactical orbment device. Features a subtle circuit-line gradient behind workspaces connecting the Quartz element dots. Active workspaces have a pronounced glow effect.
+Unified continuous bar inspired by the Xipha tactical orbment device. Features a subtle circuit-line gradient connecting the workspace indicators. The active workspace is represented by a glowing circle (holo-core), while other workspaces use diamond shapes (quartz). Empty workspaces have the lowest opacity, occupied workspaces are visible, and the active workspace glows brightly.
 
 ![Xipha](xipha/preview.png)
 
