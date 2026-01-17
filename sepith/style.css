@@ -178,6 +178,74 @@ tooltip label {
   transition: all 0.3s ease;
 }
 
+/* --- Urgent - Sepith elemental resonance effect ---
+ * Each workspace pulses with its own sepith element color
+ * Faster rhythm than Quartz for distinction */
+#workspaces button:nth-child(1).urgent {
+  color: #c9a063;
+  text-shadow: 0px 0px 8px #c9a063, 0px 0px 16px #c9a063;
+  animation: sepith-earth 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(2).urgent {
+  color: #4a9eff;
+  text-shadow: 0px 0px 8px #4a9eff, 0px 0px 16px #4a9eff;
+  animation: sepith-water 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(3).urgent {
+  color: #e85d4c;
+  text-shadow: 0px 0px 8px #e85d4c, 0px 0px 16px #e85d4c;
+  animation: sepith-fire 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(4).urgent {
+  color: #2dd4bf;
+  text-shadow: 0px 0px 8px #2dd4bf, 0px 0px 16px #2dd4bf;
+  animation: sepith-wind 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(5).urgent {
+  color: #7a7a8e;
+  text-shadow: 0px 0px 8px #7a7a8e, 0px 0px 16px #7a7a8e;
+  animation: sepith-time 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(6).urgent {
+  color: #f0c040;
+  text-shadow: 0px 0px 8px #f0c040, 0px 0px 16px #f0c040;
+  animation: sepith-space 0.9s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(7).urgent {
+  color: #a0a0b8;
+  text-shadow: 0px 0px 8px #a0a0b8, 0px 0px 16px #a0a0b8;
+  animation: sepith-mirage 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes sepith-earth {
+  from { text-shadow: 0px 0px 4px #c9a063; }
+  to { text-shadow: 0px 0px 12px #c9a063, 0px 0px 24px #c9a063; }
+}
+@keyframes sepith-water {
+  from { text-shadow: 0px 0px 4px #4a9eff; }
+  to { text-shadow: 0px 0px 12px #4a9eff, 0px 0px 24px #4a9eff; }
+}
+@keyframes sepith-fire {
+  from { text-shadow: 0px 0px 4px #e85d4c; }
+  to { text-shadow: 0px 0px 12px #e85d4c, 0px 0px 24px #e85d4c; }
+}
+@keyframes sepith-wind {
+  from { text-shadow: 0px 0px 4px #2dd4bf; }
+  to { text-shadow: 0px 0px 12px #2dd4bf, 0px 0px 24px #2dd4bf; }
+}
+@keyframes sepith-time {
+  from { text-shadow: 0px 0px 4px #7a7a8e; }
+  to { text-shadow: 0px 0px 12px #7a7a8e, 0px 0px 24px #7a7a8e; }
+}
+@keyframes sepith-space {
+  from { text-shadow: 0px 0px 4px #f0c040; }
+  to { text-shadow: 0px 0px 12px #f0c040, 0px 0px 24px #f0c040; }
+}
+@keyframes sepith-mirage {
+  from { text-shadow: 0px 0px 4px #a0a0b8; }
+  to { text-shadow: 0px 0px 12px #a0a0b8, 0px 0px 24px #a0a0b8; }
+}
+
 /* Empty but active workspace gets element color too */
 #workspaces button:nth-child(1).empty.active {
   color: @sept_earth;

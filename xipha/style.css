@@ -267,9 +267,70 @@ tooltip label {
 #workspaces button:nth-child(6):hover { color: @sept_space; }
 #workspaces button:nth-child(7):hover { color: @sept_mirage; }
 
-/* --- Urgent - pulsing glow when window demands attention --- */
-#workspaces button.urgent {
-  color: @error;
-  text-shadow: 0 0 12px @error, 0 0 20px @error;
-  animation: pulse 0.8s ease-in-out infinite;
+/* --- Urgent - Xipha circuit overload effect ---
+ * Each workspace pulses with its own sepith element color
+ * Fast alternating pulse like circuit overload */
+#workspaces button:nth-child(1).urgent {
+  color: #c9a063;
+  text-shadow: 0 0 8px #c9a063, 0 0 16px #c9a063;
+  animation: xipha-earth 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(2).urgent {
+  color: #4a9eff;
+  text-shadow: 0 0 8px #4a9eff, 0 0 16px #4a9eff;
+  animation: xipha-water 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(3).urgent {
+  color: #e85d4c;
+  text-shadow: 0 0 8px #e85d4c, 0 0 16px #e85d4c;
+  animation: xipha-fire 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(4).urgent {
+  color: #2dd4bf;
+  text-shadow: 0 0 8px #2dd4bf, 0 0 16px #2dd4bf;
+  animation: xipha-wind 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(5).urgent {
+  color: #7a7a8e;
+  text-shadow: 0 0 8px #7a7a8e, 0 0 16px #7a7a8e;
+  animation: xipha-time 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(6).urgent {
+  color: #f0c040;
+  text-shadow: 0 0 8px #f0c040, 0 0 16px #f0c040;
+  animation: xipha-space 0.6s ease-in-out infinite alternate;
+}
+#workspaces button:nth-child(7).urgent {
+  color: #a0a0b8;
+  text-shadow: 0 0 8px #a0a0b8, 0 0 16px #a0a0b8;
+  animation: xipha-mirage 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes xipha-earth {
+  from { text-shadow: 0 0 4px #c9a063, 0 0 8px #c9a063; }
+  to { text-shadow: 0 0 12px #c9a063, 0 0 24px #c9a063; }
+}
+@keyframes xipha-water {
+  from { text-shadow: 0 0 4px #4a9eff, 0 0 8px #4a9eff; }
+  to { text-shadow: 0 0 12px #4a9eff, 0 0 24px #4a9eff; }
+}
+@keyframes xipha-fire {
+  from { text-shadow: 0 0 4px #e85d4c, 0 0 8px #e85d4c; }
+  to { text-shadow: 0 0 12px #e85d4c, 0 0 24px #e85d4c; }
+}
+@keyframes xipha-wind {
+  from { text-shadow: 0 0 4px #2dd4bf, 0 0 8px #2dd4bf; }
+  to { text-shadow: 0 0 12px #2dd4bf, 0 0 24px #2dd4bf; }
+}
+@keyframes xipha-time {
+  from { text-shadow: 0 0 4px #7a7a8e, 0 0 8px #7a7a8e; }
+  to { text-shadow: 0 0 12px #7a7a8e, 0 0 24px #7a7a8e; }
+}
+@keyframes xipha-space {
+  from { text-shadow: 0 0 4px #f0c040, 0 0 8px #f0c040; }
+  to { text-shadow: 0 0 12px #f0c040, 0 0 24px #f0c040; }
+}
+@keyframes xipha-mirage {
+  from { text-shadow: 0 0 4px #a0a0b8, 0 0 8px #a0a0b8; }
+  to { text-shadow: 0 0 12px #a0a0b8, 0 0 24px #a0a0b8; }
 }
