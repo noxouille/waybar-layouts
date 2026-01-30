@@ -24,7 +24,20 @@
         "pulseaudio",
         "custom/bluetooth",
         "network",
-        "custom/battery",
+        "battery",
+        "power-profiles-daemon",
         "custom/notification"
-    ]
+    ],
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip-format": "Battery: {capacity}%\n{timeTo}"
+    }
 }
