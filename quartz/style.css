@@ -314,6 +314,7 @@ tooltip label {
 
 .modules-left #custom-media {
   margin-left: 5px;
+  font-family: "SF Mono", monospace;
 }
 
 .modules-right #custom-gpu {

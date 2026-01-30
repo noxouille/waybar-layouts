@@ -93,6 +93,10 @@ tooltip label {
   color: @tertiary;
 }
 
+#custom-media {
+  font-family: "SF Mono", monospace;
+}
+
 /* --- Right Modules --- */
 #pulseaudio,
 #custom-bluetooth,

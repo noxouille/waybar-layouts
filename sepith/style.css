@@ -66,6 +66,10 @@ tooltip label {
   color: @on_surface;
 }
 
+#custom-media {
+  font-family: "SF Mono", monospace;
+}
+
 /* --- Left modules on hover --- */
 #clock:hover,
 #custom-pacman:hover,
