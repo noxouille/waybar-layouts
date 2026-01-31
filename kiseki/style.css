@@ -66,7 +66,7 @@ tooltip label {
 #network,
 #custom-bluetooth,
 #battery,
-#power-profiles-daemon,
+#custom-power-profile,
 #custom-notification {
     margin: 5px 5px;
     padding: 0 14px;
@@ -216,7 +216,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
-#power-profiles-daemon,
+#custom-power-profile,
 #custom-notification {
     color: @secondary;
 }

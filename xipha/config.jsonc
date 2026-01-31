@@ -13,7 +13,7 @@
   // Unified bar - compact Xipha layout
   "modules-left": ["clock", "custom/weather", "custom/media", "custom/gpu"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "custom/notification"],
+  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "custom/power-profile", "custom/notification"],
 
   // Xipha Workspaces - Circuit dots representing sepith slots
   // Colors handled in CSS using nth-child selectors

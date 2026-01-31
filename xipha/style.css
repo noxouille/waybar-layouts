@@ -72,6 +72,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
+#custom-power-profile,
 #custom-notification {
   padding: 0 10px;
   color: @on_surface;
@@ -102,6 +103,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
+#custom-power-profile,
 #custom-notification {
   color: alpha(@on_surface, 0.85);
 }
@@ -110,6 +112,7 @@ tooltip label {
 #custom-bluetooth:hover,
 #network:hover,
 #battery:hover,
+#custom-power-profile:hover,
 #custom-notification:hover {
   color: @secondary;
 }

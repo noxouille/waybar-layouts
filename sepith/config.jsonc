@@ -11,7 +11,7 @@
   // Individual islands
   "modules-left": ["clock", "custom/weather", "custom/media", "custom/gpu"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "power-profiles-daemon", "custom/notification"],
+  "modules-right": ["pulseaudio", "custom/bluetooth", "network", "battery", "custom/power-profile", "custom/notification"],
 
   // Separator
   "custom/media-separator": {

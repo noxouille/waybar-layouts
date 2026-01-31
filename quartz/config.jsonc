@@ -12,7 +12,7 @@
   "modules-left": ["custom/media"],
 
   // Main centered bar - static modules only
-  "modules-center": ["clock", "custom/weather", "custom/separator", "hyprland/workspaces", "custom/separator#right", "pulseaudio", "custom/bluetooth", "network", "battery", "power-profiles-daemon", "custom/notification"],
+  "modules-center": ["clock", "custom/weather", "custom/separator", "hyprland/workspaces", "custom/separator#right", "pulseaudio", "custom/bluetooth", "network", "battery", "custom/power-profile", "custom/notification"],
 
   "modules-right": ["custom/gpu"],
 

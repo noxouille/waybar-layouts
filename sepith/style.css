@@ -55,7 +55,7 @@ tooltip label {
 #custom-weather,
 #battery,
 #custom-battery,
-#power-profiles-daemon,
+#custom-power-profile,
 #custom-notification,
 #clock,
 #custom-pacman,
@@ -92,7 +92,7 @@ tooltip label {
 #memory:hover,
 #pulseaudio:hover,
 #temperature:hover,
-#power-profiles-daemon:hover {
+#custom-power-profile:hover {
   transition: all 0.3s ease;
   color: @secondary;
 }
