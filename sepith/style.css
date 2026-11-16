@@ -55,6 +55,7 @@ tooltip label {
 #custom-weather,
 #battery,
 #custom-battery,
+#custom-voice-assistant,
 #custom-power-profile,
 #custom-notification,
 #clock,
@@ -92,6 +93,7 @@ tooltip label {
 #memory:hover,
 #pulseaudio:hover,
 #temperature:hover,
+#custom-voice-assistant:hover,
 #custom-power-profile:hover {
   transition: all 0.3s ease;
   color: @secondary;
@@ -346,4 +348,11 @@ tooltip label {
 #tray menu separator {
   padding: 0px 5px;
   transition: all 0.3s ease;
+}
+
+/* Voice Assistant: dim while its model is unloaded or its services are down */
+#custom-voice-assistant.unloaded,
+#custom-voice-assistant.offline,
+#custom-voice-assistant.stopped {
+  opacity: 0.5;
 }

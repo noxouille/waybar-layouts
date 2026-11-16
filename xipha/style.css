@@ -72,6 +72,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
+#custom-voice-assistant,
 #custom-power-profile,
 #custom-notification {
   padding: 0 10px;
@@ -103,6 +104,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
+#custom-voice-assistant,
 #custom-power-profile,
 #custom-notification {
   color: alpha(@on_surface, 0.85);
@@ -112,6 +114,7 @@ tooltip label {
 #custom-bluetooth:hover,
 #network:hover,
 #battery:hover,
+#custom-voice-assistant:hover,
 #custom-power-profile:hover,
 #custom-notification:hover {
   color: @secondary;
@@ -338,4 +341,11 @@ tooltip label {
 @keyframes xipha-mirage {
   from { text-shadow: 0 0 4px #a0a0b8, 0 0 8px #a0a0b8; }
   to { text-shadow: 0 0 12px #a0a0b8, 0 0 24px #a0a0b8; }
+}
+
+/* Voice Assistant: dim while its model is unloaded or its services are down */
+#custom-voice-assistant.unloaded,
+#custom-voice-assistant.offline,
+#custom-voice-assistant.stopped {
+  opacity: 0.5;
 }

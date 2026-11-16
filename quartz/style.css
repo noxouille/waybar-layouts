@@ -91,6 +91,7 @@ tooltip label {
 #custom-bluetooth:hover,
 #network:hover,
 #battery:hover,
+#custom-voice-assistant:hover,
 #custom-power-profile:hover,
 #custom-notification:hover {
   color: @secondary;
@@ -319,4 +320,10 @@ tooltip label {
 
 .modules-right #custom-gpu {
   margin-right: 5px;
+}
+/* Voice Assistant: dim while its model is unloaded or its services are down */
+#custom-voice-assistant.unloaded,
+#custom-voice-assistant.offline,
+#custom-voice-assistant.stopped {
+  opacity: 0.5;
 }
