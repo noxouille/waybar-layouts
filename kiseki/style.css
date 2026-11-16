@@ -66,6 +66,7 @@ tooltip label {
 #network,
 #custom-bluetooth,
 #battery,
+#custom-voice-assistant,
 #custom-power-profile,
 #custom-notification {
     margin: 5px 5px;
@@ -87,6 +88,7 @@ tooltip label {
 #network:hover,
 #custom-bluetooth:hover,
 #battery:hover,
+#custom-voice-assistant:hover,
 #custom-power-profile:hover,
 #custom-notification:hover {
     background-color: alpha(@surface_container_high, 0.95);
@@ -216,6 +218,7 @@ tooltip label {
 #custom-bluetooth,
 #network,
 #battery,
+#custom-voice-assistant,
 #custom-power-profile,
 #custom-notification {
     color: @secondary;
@@ -248,4 +251,11 @@ tooltip label {
     color: @on_error;
     background-color: alpha(@error, 0.85);
     animation: blink 1s infinite;
+}
+
+/* Voice Assistant: dim while its model is unloaded or its services are down */
+#custom-voice-assistant.unloaded,
+#custom-voice-assistant.offline,
+#custom-voice-assistant.stopped {
+  opacity: 0.5;
 }

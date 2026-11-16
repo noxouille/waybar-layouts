@@ -26,6 +26,7 @@
         "network",
         "battery",
         "custom/power-profile",
+        "custom/voice-assistant",
         "custom/notification"
     ],
 
