@@ -10,11 +10,11 @@ Workspaces display kanji representing each Trails series entry. The media player
 
 ![Kiseki](kiseki/preview.png)
 
-### Quartz
+### Quartz (Waybar)
 
-A refined version of the Sepith layout with all core modules centered. Minimal floating island design with a single center island. Workspaces display kanji colored by the seven Sepith elements: empty workspaces show blurred kanji, occupied workspaces reveal the kanji clearly, and the active workspace has highlighted kanji with a glowing effect.
+The Waybar version of quartz, kept for reference: the dotfiles' default bar is now a Quickshell bar named `quartz`. A refined version of the Sepith layout with all core modules centered. Minimal floating island design with a single center island. Workspaces display kanji colored by the seven Sepith elements: empty workspaces show blurred kanji, occupied workspaces reveal the kanji clearly, and the active workspace has highlighted kanji with a glowing effect.
 
-![Quartz](quartz/preview.png)
+![Quartz (Waybar)](quartz-waybar/preview.png)
 
 ### Sepith
 
